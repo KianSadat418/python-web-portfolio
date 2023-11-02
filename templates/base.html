@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Raleway:wght@400;800&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+        <script src="{{ url_for('static', filename='js/base.js') }}" defer></script>
+        {% block meta %}
+        {% endblock %}
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <header class="header__primary flex">
+            <button class="header__mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only">Menu</span></button>
+            <nav>
+                <ul class="header__primary-navigation flex" id="primary-navigation" data-visible="false">
+                    <li>
+                        <a href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('about') }}">About</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('experience') }}">Experience</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('portfolio') }}">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('index') }}">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        {% block content %}
+        {% endblock %}
+        <footer></footer>
+    </body>
+</html>

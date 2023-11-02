@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<script src="{{ url_for('static', filename='js/index.js') }}" defer></script>
+{% endblock %}
+
+{% block content %}
+<section class="header__landing flex">
+    <div class="header__landing-content flex">
+        <h1 id="header-h1-animated">Hi, I'm Kian Sadat</h1>
+        <h3 id="header-h3-animated">Student | Developer | Musician</h3>
+        <div class="header__landing-btns" id="header-btns-animated">
+            <a href="#">Contact Me</a>
+            <a href="#">Download CV</a>
+        </div>
+        <div class="header__landing-socials" id="header-socials-animated">
+            <a href="https://www.linkedin.com/in/kiansadat"><i class='bx bxl-linkedin' ></i></a>
+            <a href="https://www.github.com/KianSadat418"><i class='bx bxl-github' ></i></a>
+            <a href="#"><i class='bx bx-envelope' ></i></a>
+        </div>
+    </div>
+</section>
+{% endblock %}

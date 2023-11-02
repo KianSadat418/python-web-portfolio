@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/details.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="details flex">
+    <div class="details__inner">
+        <article class="project">
+            <article class="project__content">
+                <div class="project__content-title flex">
+                    <a class="back_arrow" href="/portfolio/{{ category }}">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+                        </svg>
+                    </a>
+                    <h2 class="project__heading">{{ information['name'] }}</h2>
+                </div>
+                <p>{{ information['long_description'] }}</p>
+            </article>
+            <article class="project__meta-group flex">
+                <h3 class="project__heading--meta">Skills used</h3>
+                <ul class="technology-list">
+                    {% for skill in information['skills'] %}
+                        <li class="technology-list__item flex">{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            </article>
+        </article>
+        <div class="gallery flex">
+            {% for image in information['images'] %}
+                <img class="gallery__image" src="{{ url_for('static', filename=image) }}" />
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

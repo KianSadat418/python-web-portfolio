@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/projects.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="projects flex">
+    <div class="projects__heading flex">
+        <div class="projects__heading-title flex">
+            <a class="back_arrow" href="/portfolio">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+                </svg>
+            </a>
+            <h1>{{ heading }}</h1>
+        </div>
+        <p>{{ description }}</p>
+    </div>
+    <div class="cards">
+        {% for project in projects %}
+        <div class="cards__card">
+            <img src="{{ url_for('static', filename=project['images'][0]) }}"/>
+            <div class="cards__card-content">
+                <h3>{{ project['name'] }}</h3>
+                <p>{{ project['short_description'] }}</p>
+                <a href="{{ url_for('details', category=category, project=project['name']) }}">Read More</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

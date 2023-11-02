@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="portfolio flex">
+    <div class="portfolio__title flex">
+        <h1>Kian Sadat's Portfolio</h1>
+        <h3>Welcome to my personal portfolio! Here, you'll find descriptions of all my projects and undertakings organized by category.</h3>
+    </div>
+    <div class="portfolio__categories flex">
+        <div class="portfolio__categories-card">
+            <div class="overlay">
+                <div class="overlay__content">
+                    <h2>Software</h2>
+                    <a href="{{ url_for('projects', category='software') }}">See Projects</a>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio__categories-card">
+            <div class="overlay">
+                <div class="overlay__content">
+                    <h2>Engineering</h2>
+                    <a href="{{ url_for('projects', category='engineering') }}">See Projects</a>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio__categories-card">
+            <div class="overlay">
+                <div class="overlay__content">
+                    <h2>Music</h2>
+                    <a href="{{ url_for('projects', category='music') }}">See Projects</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

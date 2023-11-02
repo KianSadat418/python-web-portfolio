@@ -1,0 +1,137 @@
+.portfolio {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#04022cb3, #eb8a7f87);
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.portfolio__title {
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    color: #e3e3e3;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.portfolio__categories {
+    position: relative;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 100px 50px;
+    padding: 30px 50px;
+}
+
+.portfolio__categories-card {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    width: 20rem;
+    height: 25rem;
+    background-image: url(../images/software.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    border: solid 4px #fff;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    transition: width 400ms;
+}
+
+.portfolio__categories-card:nth-child(2) {
+    background-image: url(../images/engineering.png);
+}
+
+.portfolio__categories-card:nth-child(3) {
+    background-image: url(../images/jazz.png);
+}
+
+.portfolio__categories-card:hover {
+    width: 24rem;
+}
+
+.overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border-radius: 16px;
+    transition: 400ms;
+}
+
+.overlay:hover {
+    background: #e9aca5d3;
+}
+
+.overlay__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    transition: bottom 500ms;
+}
+
+.overlay:hover .overlay__content {
+    bottom: 49%;
+    opacity: 1;
+}
+
+.overlay__content h2 {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.overlay__content a {
+    padding: 10px 16px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff;
+    border: solid 2px #fff;
+    border-radius: 16px;
+    transition: 280ms;
+}
+
+.overlay__content a:hover {
+    color: #eb8a7f;
+    background: #fff;
+    border: solid 2px #eb8a7f;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 35em) {
+    .portfolio__title {
+        margin-top: 3em;
+    }
+}
+
+@media (max-width: 75em) {
+    .portfolio {
+        height: 100%;
+    }
+
+    .portfolio__categories {
+        flex-direction: column;
+        gap: 40px 25px;
+    }
+}
+
+@media (min-width: 35em) {
+    .portfolio__title {
+        margin-top: 6em;
+    }
+}

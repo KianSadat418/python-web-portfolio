@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="about flex">
+    <div class="about__card flex">
+        <div class="about__title flex">
+            <h1>About Me</h1>
+            <img src="{{ url_for('static', filename='images/tgenheadshot.png') }}">
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad suscipit reprehenderit ut, fugit odit ducimus molestiae facere, commodi, laudantium aperiam doloremque quasi distinctio explicabo nulla illo quas sit autem obcaecati.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem accusamus eos voluptatibus, ipsum ad aliquid facilis dolorem ullam ducimus voluptas accusantium officiis architecto expedita quia nesciunt perferendis assumenda! Vero, asperiores!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit iusto architecto eligendi quos voluptatem ipsa. Cumque eius iusto commodi quibusdam! Quae eligendi molestiae nostrum similique, officiis deserunt? Eius, quo tempore.</p>
+    </div>
+</section>
+{% endblock %}
