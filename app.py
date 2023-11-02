@@ -129,3 +129,4 @@ def create_app():
                              information=information,
                              category=category
                           )
+  return app
