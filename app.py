@@ -71,60 +71,61 @@ all_projects = {
     'music': []
     }
 
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index.html', 
-                           title='Kian Sadat', 
-                        )
-
-@app.route('/about')
-def about():
-    return render_template('about.html', 
-                           title='Kian Sadat | About'
-                        )
-
-@app.route('/experience')
-def experience():
-    return render_template('experience.html',
-                           title='Kian Sadat | Experience'
-                        )
-
-@app.route('/portfolio')
-def portfolio():
-    return render_template('portfolio.html',
-                           title='Kian Sadat | Portfolio'
-                        )
-
-@app.route('/portfolio/<string:category>')
-def projects(category):
-    if category == 'software':
-        title = 'Kian Sadat | Software Projects'
-        description = category_descriptions[0]
-        projects = all_projects['software']
-    elif category == 'engineering':
-        title = 'Kian Sadat | Engineering Projects'
-        description = category_descriptions[1]
-        projects = all_projects['engineering']
-    else:
-        title = 'Kian Sadat | Music Projects'
-        description = category_descriptions[2]
-        projects = all_projects['music']
-    return render_template('projects.html', 
-                           title=title, 
-                           heading=title[12:], 
-                           description=description,
-                           category=category,
-                           projects=projects
-                        )
-
-@app.route('/portfolio/<string:category>/<string:project>')
-def details(category, project):
-    for card in all_projects[category]:
-        if card['name'] == project:
-            information = card
-    return render_template('details.html',
-                           information=information,
-                           category=category
-                        )
+def create_app():
+  app = Flask(__name__)
+  
+  @app.route('/')
+  def index():
+      return render_template('index.html', 
+                             title='Kian Sadat', 
+                          )
+  
+  @app.route('/about')
+  def about():
+      return render_template('about.html', 
+                             title='Kian Sadat | About'
+                          )
+  
+  @app.route('/experience')
+  def experience():
+      return render_template('experience.html',
+                             title='Kian Sadat | Experience'
+                          )
+  
+  @app.route('/portfolio')
+  def portfolio():
+      return render_template('portfolio.html',
+                             title='Kian Sadat | Portfolio'
+                          )
+  
+  @app.route('/portfolio/<string:category>')
+  def projects(category):
+      if category == 'software':
+          title = 'Kian Sadat | Software Projects'
+          description = category_descriptions[0]
+          projects = all_projects['software']
+      elif category == 'engineering':
+          title = 'Kian Sadat | Engineering Projects'
+          description = category_descriptions[1]
+          projects = all_projects['engineering']
+      else:
+          title = 'Kian Sadat | Music Projects'
+          description = category_descriptions[2]
+          projects = all_projects['music']
+      return render_template('projects.html', 
+                             title=title, 
+                             heading=title[12:], 
+                             description=description,
+                             category=category,
+                             projects=projects
+                          )
+  
+  @app.route('/portfolio/<string:category>/<string:project>')
+  def details(category, project):
+      for card in all_projects[category]:
+          if card['name'] == project:
+              information = card
+      return render_template('details.html',
+                             information=information,
+                             category=category
+                          )
